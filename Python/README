@@ -1,0 +1,14 @@
+README
+
+==== DEPENDENCIES ====
+
+hashlib
+netaddr
+pprint
+PyQt4.QtCore
+PyQt4.QtGui.QMainWindow
+PyQt4.QtGui.QApplication
+setuptools
+string
+sys
+

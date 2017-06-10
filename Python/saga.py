@@ -7,13 +7,15 @@ import ipaddr
 from netaddr import *
 import pprint
 #import myFirstForm
+from time import gmtime, strftime
+
 
 #Current IPv6 address and session key. Later fetch these values from application database.
 selfAddress = '3ffe:1900:4545:0003:0200:f8ff:fe21:67cf'
 selfKey = 'mypassword123'
 peerAddress = ' '
 peerKey = ' '
-
+currentTime = strftime("%H%M")
 
 #Print current IPv6 address. Fetch from data
 #txtCurrentIPv6
@@ -30,9 +32,10 @@ selfAddressToHex = hex(ip.ip)
 selfAddressString = selfAddressToHex[2:]
 print('Current Address String: ' + selfAddressString)
 
+print('Current Time: ' + currentTime)
 
-#Generate SHA256 fingerprint for the current IP address and session key
-hashInput = (selfAddressString+selfKey)
+#Generate SHA256 fingerprint for the current time and session key
+hashInput = (selfKey + currentTime)
 print('Hash Input: ' + hashInput)
 hashedValue = hashlib.sha256(hashInput)
 hashedValueString = (hashedValue).hexdigest()
